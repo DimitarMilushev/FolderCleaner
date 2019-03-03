@@ -11,7 +11,8 @@ namespace MyFolderCleaner
     {
         static void Main(string[] args)
         {
-           const string path = @"C:\Users\DeadlyCookie\Downloads";
+            string user = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];
+            string path = $@"C:\Users\{user}\Downloads";
 
             IEnumerable<FileInfo> directoryFiles = new DirectoryInfo(path).EnumerateFiles();
 
